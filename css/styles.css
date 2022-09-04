@@ -19,6 +19,7 @@
 	
 }
 
+    /*****Tool bar Box*/
     .box{
         left: 0;
         opacity: 0.8; 
@@ -131,3 +132,34 @@
       background-color: #8bc34a;
     }
 
+
+/*button.navbar-toggler {
+    border: 1px solid;
+    color:  green;
+}*/
+
+/********* Large devices only **********/
+@media (min-width:1200px) {
+
+}      
+
+/*****Medium devices only (laptop)********/
+@media (min-width: 992px) and (max-width: 1199px) {
+    #map{
+        width: 100%;
+    }
+}
+
+/********Small devices only (Tablet)*******/
+@media (min-width: 768px) and (max-width: 991px) {
+    #map{
+        width: 100%;
+    }
+}
+
+/********Extra small devices only (Phone)*/
+@media (max-width: 767px) {
+    #map{
+        width: 100%;
+    }
+}
