@@ -195,6 +195,21 @@ button.navbar-toggler {
     #map{
         width: 100%;
     }
+
+    /****Coordinate Indicator*/
+    #coord {
+        background: #fff;
+        position: absolute;
+        bottom: 0px;
+        left: 45%;
+        padding: 2px;
+        z-index: 99999;
+    }
+
+    form {
+        width: 50%;
+        margin-left: 30%;
+    }
 }
 
 /********Extra small devices only (Phone)*/
@@ -202,4 +217,20 @@ button.navbar-toggler {
     #map{
         width: 100%;
     }
+
+    /****Coordinate Indicator*****/
+    #coord {
+        background: #fff;
+        position: absolute;
+        bottom: 0px;
+        left: 40%;
+        padding: 2px;
+        z-index: 99999;
+    }
+
+    form {
+        width: 50%;
+        margin-left: 30%;
+    }
+
 }
