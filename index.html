@@ -24,20 +24,34 @@
       <!-- Coding the Navigation Bar -->
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"> <img src="images/logo.jpg" id="logo" height="30px" width="30px">
-        </a>
+        <a class="navbar-brand" href="#"> <img src="images/logo.jpg" id="logo" height="30px" width="30px"></a>
         <a class="navbar-brand" href="#">MeGa Geospatial</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <!-- Coding the items in the Navigation Bar -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto navbar">
                 <li class="nav-item active "><a class="nav-link" href="#">Home</a></li>
                 <li class="nav-item "><a class="nav-link" href="#">About</a></li>
-                <li class="nav-item" id="phone"><a href="tel:+233501207826" class="nav-link" href="#">+233501207826</a></li>
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Contact
+                    </a>
+                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="tel:+233501207826">+233501207826</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="Email:rtordemey@gmail.com">rtordemey@gmail.com</a></li>
+                    </ul>
+                </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+
+            <form class="d-flex">
                 <input class="form-control mr-sm-2" type="Search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -45,11 +59,13 @@
     </div>
 </nav>
 		
-
+<!-- ****** Map Container***** -->
 <div class="col-md-12">
 	<div class="box" id="map">
         <div id="coord"></div>
     </div>
+
+        <!-- **** Toogle Switch ***** -->
 
         <!-- <div class="toolbox" style="">
             <div class="card" > -->
@@ -91,18 +107,24 @@
 </div>
     
 
+
+<!--******* JQuery 3.2.1 ****** -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+
+<!-- ********Boottstrap.min.js*********** -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
 
-<!-- <script src="js/bootstrap.min.js" type="text/javascript"></script>
  --><script src="leaflet/leaflet.js" type="text/javascript"></script>
-<!-- <script src="js/jquery-3.6.1.min.js" type="text/javascript"></script> -->
+
 <script type="text/javascript" src="js/leaflet.browser.print.min.js"></script>
+
+<!-- *****Referencing Data to Display on map ******* -->
 <script type="text/javascript" src="data/region.js"></script>
 <script type="text/javascript" src="data/rail.js"></script>
 <script type="text/javascript" src="data/places.js"></script>
 
+<!-- ****MAP Script***** -->
 <script src="js/map.js" type="text/javascript"></script>
 
 </body>

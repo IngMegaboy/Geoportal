@@ -56,7 +56,7 @@ var overlays = {
     // "Roads": roadsLayer
 };
   // Add Layer control to map
-L.control.layers(baseLayers, overlays,{collapsed:false}).addTo(map);
+L.control.layers(baseLayers, overlays,{collapsed:true}).addTo(map);
 
 
 // Add leflet browser print control to map

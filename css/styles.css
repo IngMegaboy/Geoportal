@@ -30,7 +30,9 @@ li, .nav-item {
     color: default;
 }
 
-
+form,.form {
+    align-content: center;
+}
 
 .col-md-12 {
 	padding: 0px;
