@@ -5,12 +5,17 @@ div, .container-fluid {
 } 
 
 /***** navigation Bar*/
+/*a,.nav-item {
+    margin-left: 10px;
+}*/
+
 .navbar-brand {
 	padding: 0px;
+    margin-right: 10px;
 }
 a, .navbar-brand {
     padding:0px;
-    margin-right: 5px;
+    margin-right: 0px;
 }
 
 img, #logo {
@@ -30,9 +35,7 @@ li, .nav-item {
     color: default;
 }
 
-form,.form {
-    align-content: center;
-}
+
 
 .col-md-12 {
 	padding: 0px;
@@ -229,7 +232,7 @@ button.navbar-toggler {
     }
 
     form {
-        width: 50%;
+        width: 60%;
         margin-left: 30%;
     }
 
