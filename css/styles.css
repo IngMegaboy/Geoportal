@@ -1,106 +1,54 @@
-/*#map {
-    height: 97vh ;
-
-}
-
-#coord {
-    background: #fff;
-    position: absolute;
-    bottom: 0px;
-    left: 45%;
-    padding: 1px;
-    z-index: 99999;
+/*nav {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
 }*/
 
-div, .container-fluid {
-    padding: 0px;
-    margin: 0px;
 
-} 
-
-/***** navigation Bar*/
-/*a,.nav-item {
-    margin-left: 10px;
-}*/
-
-.navbar-brand {
-    padding: 0px;
-    margin-right: 10px;
-}
-a, .navbar-brand {
-    padding:0px;
-    margin-right: 0px;
-}
-
-img, #logo {
-    padding: 0px;
-    margin: 10px
-}
-
-nav, .navbar {
-    padding: 2px;
-}
-
-button, .btn {
-    color: default;
-}
-
-li, .nav-item {
-    color: default;
-}
-
-
-
-.col-md-12 {
-    padding: 0px;
-}
-
-
- /*....... MAP CSS*/ 
-
+/* ---------------------#
+        MAP CSS     
+#-----------------------#*/
 #map { 
     height: calc(100vh - 66px); 
-    background-color: #ccc;
-    
+    background:#ccc;
 }
-
-/****Coordinate Indicator*/
-#coord {
-    background: #fff;
-    position: absolute;
-    bottom: 0px;
-    left: 40%;
-    padding: 2px;
-    z-index: 99999;
-}
+    #coord {
+        background: #fff;
+        position: absolute;
+        bottom: 0px;
+        left: 45%;
+        padding: 1px;
+        z-index: 99999;
+    }
 
 
-    /*****Tool bar Box******/
     .box{
         left: 0;
         opacity: 0.8; 
         background: #ccc;
+        
     }
-    .toolbox {
+
+      .toolbox {
         width: 200px;
         min-height: 200px;
-        top: 130px;
-        left:10px;
-        position: absolute;
+        position: relative;
+        top: 10px;
+        left: 50px;
         z-index: 999;
         background-color: #ffff;
-        border: 1px dashed #333;
-        border-radius: 8px;
-
+        border: 1px solid #333;
+        border-radius: 10px;
     }
 
     .card-header {
         text-align: center;
+        font-family: 'Oxygen', sans-serif;
+        font-weight: bold;
+        font-size: 1.0em;
+        text-transform: uppercase;
     }
 
-    .card {
-        border-radius: 15px;
-    }
+
 
     .material-switch > input[type="checkbox"] {
         display: none;   
@@ -113,7 +61,7 @@ li, .nav-item {
         width: 40px;  
     }
 
-    /******* The switch - the box around the slider*****/
+    /* The switch - the box around the slider */
     .switch {
         position: relative;
         display: inline-block;
@@ -123,12 +71,13 @@ li, .nav-item {
         margin-bottom: 0px;
     }
 
-    /***** Hide default HTML checkbox *******/
+    /* Hide default HTML checkbox */
     .switch input {
         display: none;
     }
 
-    /**** The slider *******/
+
+    /* The slider */
     .slider {
         position: absolute;
         cursor: pointer;
@@ -149,8 +98,8 @@ li, .nav-item {
         left: 4px;
         bottom: 2px;
         background-color: white;
-        -webkit-transition: .2s;
-        transition: .2s;
+        -webkit-transition: .4s;
+        transition: .4s;
     }
 
 
@@ -164,6 +113,7 @@ li, .nav-item {
         transform: translateX(26px);
     }
 
+
     /* Rounded sliders */
     .slider.round {
         border-radius: 34px;
@@ -172,8 +122,12 @@ li, .nav-item {
     .slider.round:before {
         border-radius: 50%;
     }
+
+
     .list-group-item {
         padding: 10px 20px;
+        font-family: 'Oxygen', sans-serif;
+        /*font-weight: bold;*/
     }
 
     input.default:checked + .slider {
@@ -187,81 +141,28 @@ li, .nav-item {
     }
 
 
-button.navbar-toggler {
-    border: 1px solid;
-    color:  green;
-}
 
 
 
 
-/********* Large devices only **********/
-@media (min-width:1200px) {
 
-}      
-
-/*****Medium devices only (laptop)********/
-@media (min-width: 992px) and (max-width: 1199px) {
-    #map{
-        width: 100%;
-    }
-}
 
 /********Small devices only (Tablet)*******/
 @media (min-width: 768px) and (max-width: 991px) {
     #map{
-        width: 100%;
+        height: calc(100vh - 66px); 
+        background:#ccc;
     }
 
-    /****Coordinate Indicator*/
-    #coord {
+    /****Coordinate Indicator***/
+    /*#coord {
         background: #fff;
         position: absolute;
         bottom: 0px;
         left: 45%;
         padding: 2px;
         z-index: 99999;
-    }
-
-    form {
-        width: 50%;
-        margin-left: 30%;
-    }
-
-    ul, .nav-item {
-    color: default;
-    align-items: center;
-    
-    }
+    }*/
 
 }
 
-/********Extra small devices only (Phone)*/
-@media (max-width: 767px) {
-    #map{
-        width: 100%;
-    }
-
-    /****Coordinate Indicator*****/
-    #coord {
-        background: #fff;
-        position: absolute;
-        bottom: 0px;
-        left: 40%;
-        padding: 2px;
-        z-index: 99999;
-    }
-
-    form {
-        width: 60%;
-        margin-left: 30%;
-        margin-bottom: 10px;
-    }
-
-    ul, .nav-item {
-    color: default;
-    align-items: center;
-    
-    }
-
-}
