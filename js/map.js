@@ -6,7 +6,8 @@ var map = L.map('map').setView([8,-1.00], 6);
 var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+});
+// .addTo(map);
 
 
 var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
@@ -22,7 +23,7 @@ var googleTerrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={
 var googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
     maxZoom: 20,
     subdomains:['mt0','mt1','mt2','mt3']
-});
+}).addTo(map);
 
 
 var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
@@ -45,39 +46,86 @@ var baseLayers = {
 // ****** Style for polygonLayer *******
 
 var regionStyle = {
-  color : "red",
+  color : "#FF0000",
   opacity : 0.8,
   weight : 1.2,
   fill : true,
 }
 
 var districtStyle = {
-  color : "cyan",
+  color : "#29E20F",
   opacity : 0.5,
   weight : 1.5, 
-  fillColor : "cyan",
+  fillColor : "#29E20F",
   fill : true,
 }
 
 var riverStyle = {
-  // color : "blue",
+  color : "#0034B1",
   opacity : 0.6,
   fill : true,
-  // fillColor : "blue",
+  fillColor : "#0034B1",
   weight : 1,
 }
 
 
 
+//***** Add GeoJSON data for Region (PolygonFeature) *******
+var regionLayer = L.geoJson(region,{
+  style:regionStyle,
+  onEachFeature:function (feature,layer) {
+
+    area = (turf.area(feature)/1000000).toFixed(3)
+
+    label  = `ID: ${feature.properties.id} <br>`
+    label += `Name: ${feature.properties.region} REGION <br>`
+    label += `RegionCode: ${feature.properties.reg_code}<br>`
+    label += `Area : ${area}SqKm `
+    layer.bindPopup(label)
+  }
+});
+// .addTo(map);
+
+
+var districtLayer = L.geoJson(district, {
+  style:districtStyle,
+  onEachFeature:function (feature,layer) {
+
+    area = (turf.area(feature)/1000000).toFixed(3)
+
+    label  = `Name: ${feature.properties.REGION} REGION <br>`
+    label += `District: ${feature.properties.DISTRICT} <br>`
+    label += `RegionCode: ${feature.properties.DISTRICT_C} <br>`
+    label += `Area : ${area} SqKm `
+
+    layer.bindPopup(label)
+  }
+});
+// .addTo(map);
+
+// ** River ** 
+var riverLayer = L.geoJson(river, {
+  style:riverStyle,
+  onEachFeature:function (feature,layer) {
+    label  = `Name : ${feature.properties.name}<br>`
+    // label += `Type : ${feature.properties.type}<br>`
+
+    layer.bindPopup(label)
+  }
+});
+// .addTo(map);
+
+
 
 // ******** Style for pointLayer ********
-
+//  *** HealthFacilities
 var healthCenterStyle = {
   radius: 1,
   fillColor: "red",
   color : "red",
 }
 
+//  **** Places **** 
 var placesStyle = {
   radius:1,
   fill : "green",
@@ -87,39 +135,37 @@ var placesStyle = {
 
 
 
+// ****** Add geoJson data for pointFeatures **********
+
+ // Add marker in the map
+// var marker = L.marker([8,-1]).addTo(map);
+
+  // ***** HealthFacility ***** 
+  var healthCenterLayer = L.geoJson(healthCenter,{
+   pointToLayer:function(feature, latlng) {
+     return L.circleMarker(latlng,healthCenterStyle); 
+  }
+   });
+  // .addTo(map);
+
+
+  // ***** Places *****
+  var placesLayer = L.geoJson(places , {
+   pointToLayer: function(feature,latlng) {
+    return L.circleMarker(latlng,placesStyle);
+  }
+   });
+  // .addTo(map);
+
+
+
 // ******* Style for polyLine ******** 
 var railStyle = {
-  color : "yellow",
-  weight : 1.2,
+  color : "cyan",
+  weight : 1.5,
   dashArray : "10, 4, 10",
 }
 
-
-
-
-//***** Add GeoJSON data for Region (PolygonFeature) *******
-var regionLayer = L.geoJson(region,{
-  style:regionStyle,
-  onEachFeature:function (feature,layer) {
-    label  =`ID: ${feature.properties.id} <br>`
-    label +=`Name: ${feature.properties.region} <br>`
-    label += `RegionCode: ${feature.properties.reg_code} `
-    layer.bindPopup(label)
-  }
-}).addTo(map);
-
-
-var districtLayer = L.geoJson(district, {
-  style:districtStyle,
-  onEachFeature:function (feature,layer) {
-    label  = `Region : ${feature.properties.REGION}<br>`
-    label += `District : ${feature.properties.DISTRICT}<br>`
-    label += `Code : ${feature.properties.DISTRICT_C}<br>`
-    label += `Area : ${feature.properties.Area_km2}<br>`
-
-    layer.bindPopup(label)
-  }
-}).addTo(map);
 
 
 // ********** Add GeoJson data for polylineFeatures *********
@@ -131,39 +177,11 @@ var railLayer = L.geoJson(rail,{
 
     layer.bindPopup(label)
   }
-}).addTo(map);
-
-
-var riverLayer = L.geoJson(river, {
-  style:riverStyle,
-  onEachFeature:function (feature,layer) {
-    // label  = `Name : ${feature.properties.NAME}<br>`
-    // label += `Type : ${feature.properties.type}<br>`
-
-    layer.bindPopup(label)
-  }
-}).addTo(map);
+});
+// .addTo(map);
 
 
 
-// ****** Add geoJson data for pointFeatures **********
-
- // Add marker in the map
-// var marker = L.marker([8,-1]).addTo(map);
-
-
-  var healthCenterLayer = L.geoJson(healthCenter,{
-   pointToLayer:function(feature, latlng) {
-     return L.circleMarker(latlng,healthCenterStyle); 
-  }
-   }).addTo(map);
-
-
-  var placesLayer = L.geoJson(places , {
-   pointToLayer: function(feature,latlng) {
-    return L.circleMarker(latlng,placesStyle);
-  }
-   }).addTo(map);
 
 
  // ******* Layer control features ***********
