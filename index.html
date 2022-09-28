@@ -1,170 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>MeGa GeoSpatial: Home</title>
 
-   <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="keyword" content=" Web Gis">
-   <meta name="description" content="Web GIS Development">
-   <meta name="viewport" content="width-device-width, initial-scale=1">
-   
+<head>
+    <title>MeGa GeoSpatial: Home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keyword" content=" Web Gis">
+    <meta name="description" content="Web GIS Development">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
 
     <!-- ******* Bootstrap.min.css******** -->
-   <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-   
-   <!-- ******** Leaflet.css *********** -->
-   <!-- <link rel="stylesheet" type="text/css" href="leaflet/leaflet.css"> -->
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <!-- ******** Leaflet.css *********** -->
+    <!-- <link rel="stylesheet" type="text/css" href="leaflet/leaflet.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
     <!-- ******** Leaflet.js *********** -->
-   <!-- <script type="text/javascript" src="leaflet/leaflet.js"></script> -->
-   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-
+    <!-- <script type="text/javascript" src="leaflet/leaflet.js"></script> -->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-
 </head>
 
 <body>
-   <!-- ******** Coding the Navigation Bar ********** -->
-
+    <!-- ******** Coding the Navigation Bar ********** -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-
-        <a class="navbar-brand" href="#">
-          <img src="images/logo.jpg" id="logo" height="30px" width="30px" class="d-inline-block align-text-top">
-        </a>
-        <a class="navbar-brand" href="#">MeGa GeoSpaTiaL</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="container-fluid">
+         <a class="navbar-brand" href="#">
+               <img src="images/logo.jpg" id="logo" height="30px" width="30px" class="d-inline-block align-text-top">
+         </a>
+         <a class="navbar-brand" href="#">MeGa GeoSpaTiaL</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+         </button>
 
-        <!--  ********* Coding iyems in the NavBar ********* -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-
-                <!--****Contact Dropdown toggle**** --> 
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Contact
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <!--  ********* Coding iyems in the NavBar ********* -->
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">About</a>
+                  </li>
+                    <!--****Contact Dropdown toggle**** -->
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Contact
+                     </a>
+                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="whatsapp:+233501207826">(+233) 50 120 7826</a></li>
                         <li>
-                            <hr class="dropdown-divider">
+                           <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="tel:+233558232703">(+233) 55 823 2703</a></li>
                         <li>
-                            <hr class="dropdown-divider">
+                           <hr class="dropdown-divider">
                         </li>
-                        <!-- <li><a class="dropdown-item" href="Email:rtordemey@gmail.com">rtordemey@gmail.com</a></li> -->
-                    </ul>
-                </li>
+                        <li><a class="dropdown-item" href="Email:rtordemey@gmail.com">rtordemey@gmail.com</a></li>
+                     </ul>
+                  </li>
+               </ul>
+               <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+               </form>
+         </div>
+      </div>
+   </nav>
+
+    <!-- ****** Map Container***** -->
+   <div class="col-md-12">
+      <div class="box" id="map">
+         <div id="coord">
+         </div>
+
+         <div id="lyrCollapse">
+            <button class="btn btn-primary" type="button" data-target=".toolbox" aria-expanded="false" aria-controls="collapseExample">
+            <img src="leaflet/images/layers-2x.png" id="lyrLogo">
+            </button>
+          </div>
+
+
+         <!-- **** Toogle Switch ***** -->
+         <div class="toolbox">
+            <div class="card" >
+
+         <!-- *** Default panel contents (Layers Panel) **** -->
+            <div class="card-header" data-toggle="collapse"> Tools </div>
+            <ul class="custom-control custom-radio">
+                <input type="radio" name="customRadio" id="osmRadio" class="custom-control-input" value="1" onclick="radioClick(this);" checked="">
+                <label class="custom-control-label" for="osmRadio">OSM</label>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav>
 
+            <ul class="custom-control custom-radio">
+                <input type="radio" name="customRadio" id="streetRadio" class="custom-control-input" value="2" onclick="radioClick(this);">
+                <label class="custom-control-label" for="streetRadio">Street</label>
+              </ul>
 
-<!-- ****** Map Container***** -->
-<div class="col-md-12">
-   <div class="box" id="map">
-        <div id="coord"></div>
+            <ul class="custom-control custom-radio">
+                <input type="radio" name="customRadio" id="terrainRadio" class="custom-control-input" value="3" onclick="radioClick(this);">
+                <label class="custom-control-label" for="terrainRadio">Terrain</label>
+            </ul>
 
-        <!-- **** Toogle Switch ***** -->
-         <!-- <div class="toolbox" style="">
-            <div class="card" > -->
+            <ul class="custom-control custom-radio">
+              <input type="radio" name="customRadio" id="hybridRadio" class="custom-control-input" value="4" onclick="radioClick(this);">
+              <label class="custom-control-label" for="hybridRadio">Hybrid</label>
+            </ul>
+            <hr>
 
-                <!-- *** Default panel contents (Layers Panel) **** -->
-            <!--     <div class="card-header" > Tools </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        Region
-                        <label class="switch ">
-                            <input type="checkbox" class="success">
-                            <span class="slider round"></span>
-                        </label>
-                    </li>
-                    <li class="list-group-item">
-                        Districts
-                        <label class="switch ">
-                            <input type="checkbox" class="success">
-                            <span class="slider round"></span>
-                        </label>
-                    </li>
-                    <li class="list-group-item">
-                        Rivers
-                        <label class="switch ">
-                            <input type="checkbox" class="success">
-                            <span class="slider round"></span>
-                        </label>
-                    </li>
-                    <li class="list-group-item">
-                        Railways
-                        <label class="switch ">
-                            <input type="checkbox" class="success">
-                            <span class="slider round"></span>
-                        </label>
-                    </li>
-                    <li class="list-group-item">
-                        Place
-                        <label class="switch ">
-                            <input type="checkbox" class="success">
-                            <span class="slider round"></span>
-                        </label>
-                    </li>
-                </ul>
-            </div> -->
-        <!-- </div> -->
-    </div>
-</div>
-
-<footer>
-   <div class="footer">
-      Developed by MeGaBoY &copy 2022
+            <!-- ***** Layer Controls ****** -->
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item">
+                  Region
+                  <label class="switch ">
+                     <input type="checkbox" id="regionCheck" class="success">
+                        <span class="slider round"></span>
+                  </label>
+               </li>
+               <li class="list-group-item">
+                  Districts
+                  <label class="switch">
+                     <input type="checkbox" id="districtCheck" class="success">
+                        <span class="slider round"></span>
+                  </label>
+               </li>
+               <li class="list-group-item">
+                  Water Bodies
+                  <label class="switch ">
+                     <input type="checkbox" id="riverCheck" class="success">
+                        <span class="slider round"></span>
+                  </label>
+               </li>
+               <li class="list-group-item">
+                  Railways
+                  <label class="switch ">
+                     <input type="checkbox" id="railwayCheck" class="success">
+                        <span class="slider round"></span>
+                  </label>
+               </li>
+                <!-- <li class="list-group-item">
+                  Place
+                  <label class="switch">
+                     <input type="checkbox" id="placeCheck" class="success">
+                        <span class="slider round"></span>
+                  </label>
+               </li> -->
+            </ul>
+            </div>
+         </div>
+      </div>
    </div>
-</footer>
+
+    <footer>
+        <div class="footer">
+            Developed by MeGaBoY &copy 2022
+        </div>
+    </footer>
 
 
-   <!-- *******JQuery-3.6.1.min.js************* -->
-   <!-- <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script> -->
-   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- *******JQuery-3.6.1.min.js************* -->
+    <!-- <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-
-     <!-- *******Bootstrap.min.js************ 
+    <!-- *******Bootstrap.min.js************ 
    <!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
-   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
 
-  <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
-
+          <!-- ******** Turfjs ********** -->
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
 
     <!-- ******* Leaflet Browser Print Plugin ******* -->
-   <script type="text/javascript" src="js/leaflet.browser.print.min.js"></script>
+    <script type="text/javascript" src="js/leaflet.browser.print.min.js"></script>
 
+    <!-- *****Referencing Data to Display on map ******* -->
+    <script type="text/javascript" src="data/region.js"></script>
+    <script type="text/javascript" src="data/rail.js"></script>
+    <script type="text/javascript" src="data/places.js"></script>
+    <script type="text/javascript" src="data/healthCenter.js"></script>
+    <script type="text/javascript" src="data/district.js"></script>
+    <script type="text/javascript" src="data/river.js"></script>
 
-   <!-- *****Referencing Data to Display on map ******* -->
-   <script type="text/javascript" src="data/region.js"></script>
-   <script type="text/javascript" src="data/rail.js"></script>
-   <script type="text/javascript" src="data/places.js"></script>
-   <script type="text/javascript" src="data/healthCenter.js"></script>
-   <script type="text/javascript" src="data/district.js"></script>
-   <script type="text/javascript" src="data/river.js"></script>
-
-   <!-- ****MAP Script***** -->
-   <script src="js/map.js" type="text/javascript"></script>
-
+    <!-- ****MAP Script***** -->
+    <script src="js/map.js" type="text/javascript"></script>
 </body>
+
 </html>

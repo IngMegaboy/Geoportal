@@ -7,8 +7,9 @@
         MAP CSS     
 #-----------------------#*/
 #map { 
-    height: calc(100vh - 76px); 
+    height: calc(100vh - 77px); 
     background:#ccc;
+    position: relative;
 }
     #coord {
         background: #fff;
@@ -19,7 +20,6 @@
         z-index: 99999;
     }
 
-
     .box{
         left: 0;
         opacity: 0.8; 
@@ -27,17 +27,61 @@
         
     }
 
+     .card {
+        border: 0px;
+        background : #fff;
+    }
+
       .toolbox {
-        width: 200px;
+        display: none;
+        width: 190px;
         min-height: 200px;
-        position: relative;
+        position: absolute;
         top: 10px;
-        left: 50px;
-        z-index: 999;
+        right: 10px;
+        z-index: 1000;
         background-color: #ffff;
-        border: 1px solid #333;
+        border: 2px solid #333;
         border-radius: 10px;
     }
+
+    /*** layer Collapse*/
+    #lyrCollapse {
+        position: absolute;
+        text-align: right;
+        right: 10px;
+        top: 10px;
+        z-index: 1000;
+        padding: 0px;
+        background-color: transparent;
+        border: 0px;
+    }
+
+    #lyrCollapse:hover + .toolbox {
+        display: block;
+        z-index: 1000;
+    }
+
+    .toolbox:hover {
+        display: block;
+    }
+
+    #lyrLogo {
+        width: 40px;
+        height: 40px;
+        /*background-color: transparent;*/
+    }
+
+    .btn {
+        background-color: black;
+        border: 0px;
+    }
+
+    .custom-control-input {
+     cursor: pointer!important;
+    }
+
+
 
     .card-header {
         text-align: center;
@@ -46,7 +90,6 @@
         font-size: 1.0em;
         text-transform: uppercase;
     }
-
 
 
     .material-switch > input[type="checkbox"] {
@@ -60,14 +103,35 @@
         width: 40px;  
     }
 
+        /***** Map labes in layer Collapse*/
+    .custom-control {
+        /*padding: 0px;*/
+        margin: 0px;
+    }
+
+    .custom-control-label {
+        padding: 0px 10px;
+        margin-top: 5px;
+
+    }
+
+
     /* The switch - the box around the slider */
     .switch {
         position: relative;
         display: inline-block;
-        width: 46px;
+        width: 40px;
         height: 18px;
-        float: right;
+        float: left;
         margin-bottom: 0px;
+        margin-right: 25px;
+    }
+
+     .list-group-item {
+        padding: 4px 4px;
+        margin-left: 1px;
+        /*font-family: 'Oxygen', sans-serif;*/
+        /*font-weight: bold;*/
     }
 
     /* Hide default HTML checkbox */
@@ -123,12 +187,6 @@
     }
 
 
-    .list-group-item {
-        padding: 10px 20px;
-        font-family: 'Oxygen', sans-serif;
-        /*font-weight: bold;*/
-    }
-
     input.default:checked + .slider {
       background-color: #444;
     }
@@ -136,7 +194,7 @@
       background-color: #2196F3;
     }
     input.success:checked + .slider {
-      background-color: #8bc34a;
+      background-color: green;
     }
 
 
@@ -159,10 +217,11 @@
     #map{
         height: calc(100vh - 66px); 
         background:#ccc;
+        position: relative;
     }*/
 
     /****Coordinate Indicator***/
-    /*#coord {
+/*    #coord {
         background: #fff;
         position: absolute;
         bottom: 0px;

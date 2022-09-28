@@ -6,8 +6,7 @@ var map = L.map('map').setView([8,-1.00], 6);
 var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
-// .addTo(map);
+}).addTo(map);
 
 
 var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
@@ -23,24 +22,14 @@ var googleTerrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={
 var googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
     maxZoom: 20,
     subdomains:['mt0','mt1','mt2','mt3']
-}).addTo(map);
+});
+// .addTo(map);
 
 
 var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
     maxZoom: 20,
     subdomains:['mt0','mt1','mt2','mt3']
 }); 
-
-
-// ************* Add various base map to a dictionary ***********
-var baseLayers = {
-   "OpenStreetMap": osm,
-   "Streets": googleStreets,
-   "Terrain" : googleTerrain,
-   "Hybrid": googleHybrid,
-   "Satellite" : googleSat,
-};
-
 
 
 // ****** Style for polygonLayer *******
@@ -93,8 +82,8 @@ var districtLayer = L.geoJson(district, {
 
     area = (turf.area(feature)/1000000).toFixed(3)
 
-    label  = `Name: ${feature.properties.REGION} REGION <br>`
     label += `District: ${feature.properties.DISTRICT} <br>`
+    label  = `Name: ${feature.properties.REGION} REGION <br>`
     label += `RegionCode: ${feature.properties.DISTRICT_C} <br>`
     label += `Area : ${area} SqKm `
 
@@ -181,35 +170,83 @@ var railLayer = L.geoJson(rail,{
 // .addTo(map);
 
 
+// ***** Coding the actions of the checkbox *****
+var osmRadio = document.getElementById('osmRadio')
+var streetRadio = document.getElementById('streetRadio')
+var terrainRadio = document.getElementById('terrainRadio')
+var hybridRadio = document.getElementById('hybridRadio')
 
 
 
- // ******* Layer control features ***********
-var overlays = {
-    // "Marker": marker,
-    "HealthCenter" : healthCenterLayer,
-    "Places" : placesLayer,
-    "RailLine" : railLayer,
-    "Region": regionLayer,
-    "District" : districtLayer,
-    "River" : riverLayer,
+// ************* Add various base map to a dictionary ***********
+
+var baseLayers = {
+   "Osm": osm,
+   "Streets": googleStreets,
+   "Terrain" : googleTerrain,
+   "Hybrid": googleHybrid,
+   // "Satellite" : googleSat,
 };
 
+// **** defining the function of the radioClick in the html
+function radioClick(myRadio) {
+  var selectedRadio = myRadio.id;
+  if (selectedRadio == "osmRadio") baseLayers["Osm"].addTo(map)
+    else map.removeLayer(baseLayers["Osm"])
+  if (selectedRadio == "streetRadio") baseLayers["Streets"].addTo(map)
+    else map.removeLayer(baseLayers["Streets"])
+  if (selectedRadio == "terrainRadio") baseLayers["Terrain"].addTo(map)
+    else map.removeLayer(baseLayers["Terrain"])
+  if (selectedRadio == "hybridRadio") baseLayers["Hybrid"].addTo(map)
+    else map.removeLayer(baseLayers["Hybrid"])
+}
 
 
- // ***** Add WMS Data ****** 
-// var wmsRiver = L.tileLayer.wms("http://localhost:8080/geoserver/Geospatial/wms", {
-//     layers: 'Geospatial:Rivers',
-//     format: 'image/png',
-//     transparent: true
-//     // attribution: "MeGa © 2022 "
-// }).addTo(map);
+
+// *** coding the action of th switch ****** 
+regionCheck.onclick = function () {
+  if ($(this).is(':checked')) regionLayer.addTo(map)
+    else map.removeLayer(regionLayer)
+}
+
+districtCheck.onclick = function () {
+  if ($(this).is(':checked')) districtLayer.addTo(map)
+    else map.removeLayer(districtLayer)
+}
+
+riverCheck.onclick =function() {
+  if($(this).is(':checked')) riverLayer.addTo(map)
+    else map.removeLayer(riverLayer)
+}
+
+railwayCheck.onclick =function() {
+  if($(this).is(':checked')) railLayer.addTo(map)
+    else map.removeLayer(railLayer)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 // ****Add Layer control to map *******
-L.control.layers(baseLayers, overlays,{collapsed:true}).addTo(map);
+// L.control.layers(baseLayers, overlays,{collapsed:true}).addTo(map);
 
  //******Add leflet browser print control to map *********
 L.control.browserPrint({position:'topleft'}).addTo(map);
