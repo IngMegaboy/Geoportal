@@ -202,51 +202,38 @@ function radioClick(myRadio) {
 }
 
 
-
+// Layer control features
+var overlays = {
+//     // "Marker": marker,
+    "Region": regionLayer,
+    "District" : districtLayer,
+    "RailLine" : railLayer,
+    "River" : riverLayer,
+  };
 // *** coding the action of th switch ****** 
 regionCheck.onclick = function () {
-  if ($(this).is(':checked')) regionLayer.addTo(map)
-    else map.removeLayer(regionLayer)
+  if ($(this).is(':checked')) overlays["Region"].addTo(map)
+    else map.removeLayer(overlays["Region"])
 }
 
 districtCheck.onclick = function () {
-  if ($(this).is(':checked')) districtLayer.addTo(map)
-    else map.removeLayer(districtLayer)
+  if ($(this).is(':checked')) overlays["District"].addTo(map)
+    else map.removeLayer(overlays["District"])
 }
 
 riverCheck.onclick =function() {
-  if($(this).is(':checked')) riverLayer.addTo(map)
-    else map.removeLayer(riverLayer)
+  if($(this).is(':checked')) overlays["River"].addTo(map)
+    else map.removeLayer(overlays["River"])
 }
 
 railwayCheck.onclick =function() {
-  if($(this).is(':checked')) railLayer.addTo(map)
-    else map.removeLayer(railLayer)
+  if($(this).is(':checked')) overlays["RailLine"].addTo(map)
+    else map.removeLayer(overlays["RailLine"])
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ****Add Layer control to map *******
-// L.control.layers(baseLayers, overlays,{collapsed:true}).addTo(map);
 
  //******Add leflet browser print control to map *********
 L.control.browserPrint({position:'topleft'}).addTo(map);
@@ -258,3 +245,6 @@ L.control.scale({position:"bottomleft"}).addTo(map);
 map.on("mousemove", function(e){
   $("#coord").html(`Lat:${e.latlng.lat.toFixed(3)}, Long:${e.latlng.lng.toFixed(3)}`)
 });
+
+// ****Add Layer control to map *******
+// L.control.layers(baseLayers, overlays,{collapsed:true}).addTo(map);
