@@ -66,10 +66,10 @@ var regionLayer = L.geoJson(region,{
 
     area = (turf.area(feature)/1000000).toFixed(3)
 
-    label  = `ID: ${feature.properties.id} <br>`
-    label += `Name: ${feature.properties.region} REGION <br>`
-    label += `RegionCode: ${feature.properties.reg_code}<br>`
-    label += `Area : ${area}SqKm `
+    label  = `ID : ${feature.properties.id} <br>`
+    label += `Region : ${feature.properties.region} REGION <br>`
+    label += `RegionCode : ${feature.properties.reg_code}<br>`
+    label += `Area : ${area} SqKm `
     layer.bindPopup(label)
   }
 });
@@ -82,9 +82,9 @@ var districtLayer = L.geoJson(district, {
 
     area = (turf.area(feature)/1000000).toFixed(3)
 
-    label += `District: ${feature.properties.DISTRICT} <br>`
-    label  = `Name: ${feature.properties.REGION} REGION <br>`
-    label += `RegionCode: ${feature.properties.DISTRICT_C} <br>`
+    label  = `District : ${feature.properties.DISTRICT} <br>`
+    label += `Region : ${feature.properties.REGION} REGION <br>`
+    label += `DistrictCode : ${feature.properties.DISTRICT_C} <br>`
     label += `Area : ${area} SqKm `
 
     layer.bindPopup(label)
@@ -104,8 +104,6 @@ var riverLayer = L.geoJson(river, {
 });
 // .addTo(map);
 
-
-
 // ******** Style for pointLayer ********
 //  *** HealthFacilities
 var healthCenterStyle = {
@@ -121,8 +119,6 @@ var placesStyle = {
   color : "green",
   fillColor : "green",
 }
-
-
 
 // ****** Add geoJson data for pointFeatures **********
 
@@ -154,7 +150,6 @@ var railStyle = {
   weight : 1.5,
   dashArray : "10, 4, 10",
 }
-
 
 
 // ********** Add GeoJson data for polylineFeatures *********
