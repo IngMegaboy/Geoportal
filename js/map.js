@@ -205,8 +205,8 @@ var overlays = {
 //     // "Marker": marker,
     "Region": regionLayer,
     "District" : districtLayer,
-    "RailLine" : railLayer,
     "River" : riverLayer,
+    // "RailLine" : railLayer,
   };
 // *** coding the action of th switch ****** 
 regionCheck.onclick = function () {
@@ -224,10 +224,10 @@ riverCheck.onclick =function() {
     else map.removeLayer(overlays["River"])
 }
 
-railwayCheck.onclick =function() {
-  if($(this).is(':checked')) overlays["RailLine"].addTo(map)
-    else map.removeLayer(overlays["RailLine"])
-}
+// railwayCheck.onclick =function() {
+//   if($(this).is(':checked')) overlays["RailLine"].addTo(map)
+//     else map.removeLayer(overlays["RailLine"])
+// }
 
 
 
@@ -256,7 +256,7 @@ function onLocationFound(e) {
     
     L.marker(e.latlng).addTo(map)
         // .bindPopup("You are within " + radius + " meters from this point").openPopup();
-        .bindPopup("Current location is within " + radius +"m from this point").openPopup();
+        .bindPopup("Current location !!!").openPopup();
     L.circle(e.latlng, radius).addTo(map);
 }
 
