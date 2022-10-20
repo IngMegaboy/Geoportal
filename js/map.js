@@ -256,7 +256,7 @@ function onLocationFound(e) {
     
     L.marker(e.latlng).addTo(map)
         // .bindPopup("You are within " + radius + " meters from this point").openPopup();
-        .bindPopup("Current Location").openPopup();
+        .bindPopup("Current location is within " + radius +"m from this point").openPopup();
     L.circle(e.latlng, radius).addTo(map);
 }
 
