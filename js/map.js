@@ -35,26 +35,29 @@ var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
 // ****** Style for polygonLayer *******
 
 var regionStyle = {
-  color : "#FF0000",
-  opacity : 0.8,
-  weight : 1.2,
+  weight : 1.5,
   fill : true,
+  opacity : 0.9,
+  color : "#ff0000",
+  fillOpacity : 0.05,
+  fillColor : "#ff0000",
 }
 
 var districtStyle = {
-  color : "#29E20F",
-  opacity : 0.5,
-  weight : 1.5, 
-  fillColor : "#29E20F",
+  weight : 1.5,
   fill : true,
+  opacity : 0.9,
+  color : "#00ff00",
+  fillOpacity : 0.05,
+  fillColor : "#00ff00",
 }
 
 var riverStyle = {
-  color : "#0034B1",
+  // color : "#3401ff",
   opacity : 0.6,
+  weight : 1.5, 
   fill : true,
-  fillColor : "#0034B1",
-  weight : 1,
+  fillColor : "#3401ff",
 }
 
 
@@ -243,3 +246,24 @@ map.on("mousemove", function(e){
 
 // ****Add Layer control to map *******
 // L.control.layers(baseLayers, overlays,{collapsed:true}).addTo(map);
+
+
+// ******** Geolocation of User *********** //
+map.locate({setView: true, maxZoom: 16});
+
+function onLocationFound(e) {
+    var radius = e.accuracy.toFixed(0);
+    
+    L.marker(e.latlng).addTo(map)
+        // .bindPopup("You are within " + radius + " meters from this point").openPopup();
+        .bindPopup("Current Location").openPopup();
+    L.circle(e.latlng, radius).addTo(map);
+}
+
+  // ******** Display message if Geoolocation fails ******** //
+map.on('locationfound', onLocationFound);
+
+function onLocationError(e) {
+    alert(e.message);
+  }
+map.on('locationerror', onLocationError);
